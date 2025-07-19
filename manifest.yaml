@@ -1,6 +1,6 @@
 version: 0.0.1
 type: plugin
-author: dify-user
+author: radial
 name: funasr-transcriber
 label:
   en_US: FunASR Transcriber
@@ -29,4 +29,7 @@ meta:
   minimum_dify_version: null
 created_at: 2025-07-19T21:03:54.4844333+08:00
 privacy: PRIVACY.md
+tags:
+  - productivity
+  - utilities
 verified: false
