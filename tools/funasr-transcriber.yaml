@@ -1,0 +1,25 @@
+identity:
+  name: "funasr-transcriber"
+  author: "radial"
+  label:
+    en_US: "FunASR Transcriber"
+    zh_Hans: "FunASR 语音转写"
+description:
+  human:
+    en_US: "Transcribes an audio file to text using FunASR."
+    zh_Hans: "使用 FunASR 将音频文件转写为文本。"
+  llm: "A tool for transcribing audio files to text using the FunASR service."
+parameters:
+  - name: audiofile
+    type: file
+    required: true
+    label:
+      en_US: "Audio File"
+      zh_Hans: "音频文件"
+    human_description:
+      en_US: "The audio file to be transcribed (e.g., WAV, PCM, MP3)."
+      zh_Hans: "需要转写的音频文件（例如 WAV, PCM, MP3）。"
+    form: llm
+extra:
+  python:
+    source: tools/funasr-transcriber.py
