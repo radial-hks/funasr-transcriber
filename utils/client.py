@@ -8,7 +8,7 @@ async def transcribe(audio_bytes: bytes, server: str, port: int) -> str:
     """
     Connects to a FunASR WebSocket server and transcribes the given audio bytes.
     """
-    uri = f"ws://{server}:{port}"
+    uri = f"wss://{server}:{port}"
 
     async with websockets.connect(uri, subprotocols=["binary"], ping_interval=None) as websocket:
         # Send connection header

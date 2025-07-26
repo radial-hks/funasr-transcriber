@@ -24,6 +24,21 @@ class FunasrTranscriberTool(Tool):
         # Run transcription
         try:
             result = asyncio.run(transcribe(audio_bytes, funasr_host, funasr_port))
-            yield self.create_json_message({"text": result})
+            
+            # 1. Yield the primary result as a text message for direct display
+            yield self.create_text_message(result)
+
+            # 2. Yield a JSON object with more detailed information
+            yield self.create_json_message({
+                "transcription": result,
+                "engine": "funasr",
+                "server_host": funasr_host
+            })
+
+            # 3. Yield the transcription as a downloadable text file
+            # transcription_bytes = result.encode('utf-8')
+            # yield self.create_blob_message(blob=transcription_bytes, 
+            #                             meta={'mime_type': 'text/plain', 'file_name': 'transcription.txt'})
+
         except Exception as e:
             yield self.create_text_message(f"Transcription failed: {e}")
