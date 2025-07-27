@@ -10,9 +10,11 @@ This plugin integrates FunASR (A Fun-text Autonomous Speech Recognition) into Di
 
 ### Features
 
-- **Audio Transcription**: Transcribe audio files (e.g., WAV) into text.
+- **Audio Transcription**: Transcribe audio files (WAV, MP3, PCM) into text.
+- **Format Conversion**: Automatically converts MP3 files to WAV format for optimal compatibility.
 - **Easy Integration**: Seamlessly connect to a running FunASR server.
 - **Configurable**: Set the FunASR server host and port via environment variables.
+- **Rich Output**: Returns transcription as text, JSON with metadata, and downloadable file.
 
 ### Prerequisites
 
@@ -67,7 +69,11 @@ Once the plugin is installed and configured in Dify:
 1.  Go to the **Studio -> Tools** section in Dify.
 2.  Find and add the **FunASR Transcriber** tool to your application.
 3.  In your application, you can now use the tool by providing an audio file as input.
-4.  The tool will return the transcribed text as a string.
+4.  **Supported formats**: WAV, MP3, PCM (MP3 files will be automatically converted to WAV).
+5.  The tool will return:
+    - Transcribed text as a string
+    - JSON object with detailed information including file metadata
+    - Downloadable transcription text file
 
 
 

@@ -13,7 +13,7 @@ async def transcribe(audio_bytes: bytes, server: str, port: int) -> str:
     async with websockets.connect(uri, subprotocols=["binary"], ping_interval=None) as websocket:
         # Send connection header
         await websocket.send(json.dumps({
-            "mode": "2pass",
+            "mode": "offline",
             "chunk_size": [5, 10, 5],
             "chunk_interval": 10,
             "wav_name": "dify-plugin",
